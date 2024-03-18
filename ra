@@ -1,0 +1,172 @@
+rainfall <- c(799,1174.8,865.1,1334.6,635.4,918.5,685.5,998.6,784.2,985,882.8,1071)
+rainfall.timeseries <- ts(rainfall,start = c(2012,1),frequency = 12)
+
+print(rainfall.timeseries)
+png(file = "RajSingh_102.png")
+ plot(rainfall.timeseries,main="RajSingh_102")
+dev.off()
+plot(rainfall.timeseries,main="RajSingh_102")
+
+
+
+>newiris <- iris
+>newiris$Species <- NULL
+>(kc <- kmeans(newiris,3))
+>table(iris$Species,kc$cluster)
+>plot(newiris[c("Sepal.Length","Sepal.Width")],col=kc$cluster,main="RajSingh_102"
+)
+points(kc$centers[,c("Sepal.Length","Sepal.Width")],col=1:3,pch=8,cex=2)
+dev.off()
+plot(newiris[c("Sepal.Length","Sepal.Width")],col=kc$cluster,main="RajSingh_102"
+)
+
+
+
+x <- c(151, 174, 138, 186, 128, 136, 179, 163, 152, 131)
+ y <- c(63, 81, 56, 91, 47, 57, 76, 72, 62, 48)
+>relation <- lm(y~x)
+> print(summary(relation))
+C. Predict the weight of new persons
+# The predictor vector.
+> x <- c(151, 174, 138, 186, 128, 136, 179, 163, 152, 131)
+# The response vector.
+> y <- c(63, 81, 56, 91, 47, 57, 76, 72, 62, 48)
+# Apply the lm() function.
+> relation <- lm(y~x)
+# Find weight of a person with height 170.
+> a <- data.frame(x = 170)
+> result <- predict(relation,a)
+> print(result)
+
+
+quality <- read.csv('C:/Users/BI/Desktop/bi datasets/quality.csv')
+> str(quality)
+table(quality$PoorCare)
+> 98/131
+> install.packages("caTools")
+> library(caTools)
+> set.seed(88)
+> split=sample.split(quality$PoorCare,SplitRatio=0.75)
+> split
+> qualityTrain=subset(quality,split==TRUE)
+> qualityTest=subset(quality,split==FALSE)
+> nrow(qualityTrain)
+> nrow(qualityTest)
+>QualityLog=glm(PoorCare~OfficeVisits+Narcotics,data=qualityTrain,family=binomial)
+> summary(QualityLog)
+> predictTrain=predict(QualityLog,type="response")
+> summary(predictTrain)
+> tapply(predictTrain,qualityTrain$PoorCare,mean)
+> table(qualityTrain$PoorCare,predictTrain>0.5)
+> 10/25
+> 70/74
+> table(qualityTrain$PoorCare,predictTrain>0.2)
+> 16/25
+> 54/74
+> install.packages("ROCR")
+> library(ROCR)
+> ROCRpred = prediction(predictTrain, qualityTrain$PoorCare)
+> ROCRperf = performance(ROCRpred, "tpr", "fpr")
+> plot(ROCRperf,main="Jyotiyadav_119")
+>plot(ROCRperf,colorize=TRUE,print.cutoffs.at=seq(0,1,by=0.1),text.adj=c(-0.2,1.7),m
+ain="Jyotiyadav_119")
+
+
+
+
+
+> install.packages("party")
+> library(party)
+# Print some records from data set readingSkills.
+> print(head(readingSkills))
+# Create the input data frame. input.dat <- readingSkills[c(1:105),] # Create the input
+data frame
+> Input.dat<-readingSkills[c(1:105),]
+# Give the chart file a name.
+> png(file="decision_tree.png")
+# Create the tree.
+> output.tree<-ctree(nativeSpeaker~age+shoeSize+score,data=Input.dat)
+# Plot the tree.
+> plot(output.tree)
+# Save the file.
+> dev.off()
+# Plot the tree.
+> plot(output.tree,main="JyotiYadav_119")
+
+
+
+
+
+
+Step 1 − Open a new blank Workbook in Excel.
+Step 2 − Click on the DATA tab.
+Step 3 − In the Get External Data group, click on the option From Access.
+The Select Data Source dialog box opens.
+Step 4 − Select the OlympicMedals.accdb file you downloaded and click Open.
+Step 5 − The Select Table window, displaying all the tables found in the database,
+appears. Step 6 − Tables in a database are similar to the tables in Excel. Check the
+‘Enable selection of multiple tables’ box, and select all the tables.
+Then click OK.
+Step 7 − The Import Data window appears. Select the PivotTable Report option.
+This option imports the tables into Excel and prepares a PivotTable for analyzing the
+imported tables.
+Notice that the checkbox at the bottom of the window - ‘Add this data to the Data
+Model’ is selected and disabled.
+Step 8 − The data is imported, and a PivotTable is created using the imported tables.
+• Explore Data Using PivotTable Step 1 : In PivotTable Fields, click on the arrow beside
+the table - Medals to expand it to show the fields in that table. Drag the
+NOC_CountryRegion field in the Medals table to the COLUMNS area.
+Step 2 − Drag Discipline from the Disciplines table to the ROWS area.
+Step 3 − Filter Discipline to display only five sports: Archery, Diving, Fencing, Figure
+Skating, and Speed Skating.
+This can be done either in PivotTable Fields area, or from the Row Labels filter in the
+PivotTable itself.
+Step 4 − In PivotTable Fields, from the Medals table, drag Medal to the VALUES area.
+Step 5 − From the Medals table, select Medal again and drag it into the FILTERS area.
+Step 6 − Click the dropdown list button to the right of the Column labels.
+Step 7 − Select Value Filters and then select Greater Than…
+Step 8 − Click OK.
+Step 9 − Type 80 in the Right Field.
+Step 10 − Click OK.
+The PivotTable displays only those regions, which has more than total 80 medals.
+• Create Relationships between Tables Relationships let you analyse your collections of
+the data in Excel, and create interesting and aesthetic reports from the data you import.
+Step 1 − Insert a new Worksheet.
+Step 2 − Create a new table with new data. Name the new table as Sports.
+The Select Data Source dialog box opens.
+Step 3 − Select the OlympicMedals.accdb file you downloaded and click
+Open.
+Step 4 − The Select Table window, displaying all the tables found in the
+database, appears.
+Step 5 − Tables in a database are similar to the tables in Excel.
+Check the ‘Enable selection of multiple tables’ box, and select Events table.
+Then click OK.
+Step 6 − The Import Data window appears. Select the PivotTable Report
+option.
+This option imports the tables into Excel and prepares a PivotTable for
+analyzing the imported tables.
+Select Table as your View data and Select the option to create a new Workbook to put
+your new data.
+The data is imported, and a Table is displayed.
+Step 7 – Delete all the columns except Sport and SportID.
+Step 8 – To remove duplicate values click on Data and Click on Remove Duplicate
+button.
+Step 10 – All the duplicate values are removed.
+Step 10 – On the Medals sheet, in the PivotTable Fields List, click All.
+A complete list of available tables will be displayed.
+The newly added table will also be displayed.
+Step 11 − Click on the new Table. In the expanded list of fields, select Sports. Excel
+messages you to create a relationship between tables.
+Step 12 − Click on CREATE. The Create Relationship dialog box opens.
+Step 13 − To create the relationship, one of the tables must have a column
+of unique, non repeated, values. In the Disciplines table, SportID column
+has such values. The newly created table also has the SportID column.
+In Table, select Disciplines.
+Step 14 − In Column (Foreign), select SportID.
+Step 15 − In Related Table, select Sports.
+Step 16 − In Related Column (Primary), SportID gets selected
+automatically. Click OK.
+Step 17 − The PivotTable is modified to reflect the addition of the new
+Data Field Sport. Adjust the order of the fields in the Rows area to
+maintain the Hierarchy. In this case, Sport should be first and Discipline
+should be the next, as Discipline will be nested in Sport as a sub-category.
